@@ -10,7 +10,7 @@
 
 ```#!bash
 
-$ python lang_frequency.py -f=path/to/file # possibly requires call of python3 executive instead of just python
+$ python lang_frequency.py -f=path/to/file # Возможно, требует вызова исполнительного элемента python3 вместо простого python
 
 Пример вывода:
 The
