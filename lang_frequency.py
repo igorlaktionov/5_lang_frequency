@@ -5,19 +5,14 @@ from collections import Counter
 
 def load_data(filepath):
     try:
-        return open(filepath, 'r').read().lower()
+        return open(filepath, 'r').read()
     except OSError as error:
         print(error)
         return None
 
 
-def get_most_frequent_words(text, number_most_popular_words):
-    try:
-        words = re.findall(r'\w+', text)
-        return Counter(words).most_common(number_most_popular_words)
-    except TypeError as error:
-        print(error)
-        return None
+def get_most_frequent_words(words, number_most_popular_words):
+    return Counter(words).most_common(number_most_popular_words)
 
 
 def print_most_frequent_words(most_frequent_words):
@@ -37,5 +32,6 @@ if __name__ == '__main__':
     args = parser_input_data()
     text = load_data(args.file_path)
     if text:
-        most_frequent_words = get_most_frequent_words(text, args.number_most_popular_words)
+        clear_words = re.findall(r'\w+', text.lower())
+        most_frequent_words = get_most_frequent_words(clear_words, args.number_most_popular_words)
         print_most_frequent_words(most_frequent_words)
